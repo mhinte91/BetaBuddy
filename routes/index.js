@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const indexCtrl = require('../controllers/index');
 
-// Get landing page
-router.get('/', (req, res) => res.render(console.log('Hello')));
+router.get('/', indexCtrl.index);
 
 module.exports = router;
