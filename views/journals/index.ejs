@@ -1,9 +1,17 @@
 <%- include('../partials/header') %>
 
 <h1>My Journals</h1>
+
+<% journals.forEach(function(journal) { %>
+<p> <%= journal.name %> 
+    <%= journal.location %> 
+    <%= journal.description %> 
+</p>
+
+<% }); %>
+
+
 <a href="/journals/new">add a journal!</a>
-
-
 <br>
 <br>
 <a href="/logout"><i class="material-icons left"></i>Log Out</a>
