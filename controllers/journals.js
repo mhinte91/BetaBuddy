@@ -4,8 +4,20 @@ module.exports = {
     index,
     new: newJournal,
     create,
-    show
+    show,
+    addProject
 };
+
+function addProject(req, res) {
+    Journal.findById(req.params.id, function(err, journal) {
+        journal.projects.push(req.body);
+        console.log('journal data', journal);
+        journal.save(function(err, journal) {
+            res.redirect(`/journals/${journal._id}`)
+        })
+    })
+}
+
 
 function show(req, res, next) {
     Journal.findById(req.params.id, function(err, journal) {

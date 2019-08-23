@@ -4,6 +4,10 @@ module.exports = {
     new: newProj,
 };
 
+
 function newProj(req, res) {
-    res.render('projects/new');
+    Journal.findById(req.params.id, (err, journal) => {
+        console.log(journal)
+        res.render('projects/new', { journal });
+    })
 }
