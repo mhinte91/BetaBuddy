@@ -1,6 +1,16 @@
 <%- include('./partials/header') %>
    
 
-  <h1> Welcome to BETA BUDDY </h1>  
+  <h1> Welcome to BETA BUDDY </h1>
+  <ul class="right">
+    <li>
+    <% if (user) { %>
+      <a href="/logout"><i class="material-icons left"></i>Log Out</a>
+    <% } else { %>
+      <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+    <% } %>
+    </li>
+  </ul>
+    
 
 <%- include('./partials/footer') %>
