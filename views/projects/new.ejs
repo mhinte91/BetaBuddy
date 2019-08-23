@@ -1,3 +1,5 @@
+<%- include('../partials/header') %>
+
 <h1>New Project Form</h1>
 
 <form action="/journals/<%= journal._id %>/projects" method="POST">
@@ -11,7 +13,7 @@ Wall Type: <select name="type">
 </select>
 <br>
 Grade: <select name="grade">
-<option value="5.1-5.8/ || VB">5.1-5.8 || VB</option>
+<option value="5.1-5.8 || VB">5.1-5.8 || VB</option>
 <option value="5.9-1.10- || V0">5.9-5.10- || V0</option>
 <option value="5.10+ || V1">5.10+ || V1</option>
 <option value="5.11- || V2">5.11- || V2</option>
@@ -31,3 +33,7 @@ Start Date: <input type="date" name="startDate">
 <br>
 <input type="submit" value="Add New Project">
 </form>
+
+<a href="/journals/<%= journal._id %>">Back to Projects</a>
+
+<%- include('../partials/footer') %>

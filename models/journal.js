@@ -19,7 +19,6 @@ const journalSchema = new Schema ({
     name: String,
     location: String,
     description: String,
-    entries: {type: Number, default: 0},
     projects: [projectSchema]
 }, {timestamps:true} );
 
