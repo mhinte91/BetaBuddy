@@ -3,15 +3,18 @@
 <h1>My Journals</h1>
 
 <% journals.forEach(function(journal) { %>
-<p> <%= journal.name %> 
-    <%= journal.location %> 
-    <%= journal.description %> 
+<p>
+    ---------------------------------------------- <br>
+    <b>Name: </b><%= journal.name %> <br>
+    <b>Location: </b><%= journal.location %> <br>
+    <b>Description: </b><%= journal.description %> <br>
+    <b>Entries: </b><%= journal.entries %> <br>
+    <a href="/journals/<%= journal.id %>">Explore this Journal</a> | <a href="">Delete Journal</a> <br>
+    ----------------------------------------------
 </p>
-
 <% }); %>
 
-
-<a href="/journals/new">add a journal!</a>
+<a href="/journals/new">Add a journal!</a>
 <br>
 <br>
 <a href="/logout"><i class="material-icons left"></i>Log Out</a>

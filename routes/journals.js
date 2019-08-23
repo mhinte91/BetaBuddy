@@ -8,4 +8,7 @@ router.get('/new', journalsCtrl.new);
 
 router.post('/', journalsCtrl.create);
 
+router.get('/:id', journalsCtrl.show);
+
+
 module.exports = router;
