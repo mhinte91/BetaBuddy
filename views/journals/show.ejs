@@ -7,7 +7,10 @@
 
 <% if(journal.projects.length > 0) { %>
     <% journal.projects.forEach(function(p) { %>
+        ---------------------------------------------
         <p><%= p.name %> :: <%= p.type %> :: <%= p.grade %></p>
+        ---------------------------------------------
+        <br>
     <% }) %>
 <% } else { %>
     <p>There are no projects for this journal</p>

@@ -3,11 +3,11 @@ const path = require('path');
 const indexRouter = require('./routes/index');
 const journalsRouter = require('./routes/journals');
 const projectsRouter = require('./routes/projects');
-var session = require('express-session');
-var passport = require('passport');
-
+const session = require('express-session');
+const passport = require('passport');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 
 require('dotenv').config();
 
