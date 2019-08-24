@@ -9,7 +9,7 @@
     <b>Location: </b><%= journal.location %> <br>
     <b>Description: </b><%= journal.description %> <br>
     <b>Entries: </b><%= journal.projects.length %> <br>
-    <a href="/journals/<%= journal.id %>">Explore this Journal</a> | <a href="">Delete Journal</a> <br>
+    <a href="/journals/<%= journal.id %>">Explore this Journal</a> | <a href="/journals/<%= journal.id %>/deleteJournal">Delete Journal</a> <br>
     ----------------------------------------------
 </p>
 <% }); %>
