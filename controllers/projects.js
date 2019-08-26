@@ -6,6 +6,7 @@ module.exports = {
     newNote
 };
 
+
 function newNote(req, res, next) {
     Journal.findOne({'projects._id': req.params.id}, (err, journal) =>
     {if (err) throw err;
@@ -13,10 +14,15 @@ function newNote(req, res, next) {
             return x.id;
         }).indexOf(req.params.id);
         var proj = journal.projects[elem];
-        proj.notes.push[req.body];
-       proj.save
-    });
+        proj.notes.push(req.body);
+        journal.save( function(err) {
+            res.render(`projects/show`, {journal, proj})
+            console.log(proj)
+
+        })
+    })
 }
+
 
 
 function show(req, res, next) {
