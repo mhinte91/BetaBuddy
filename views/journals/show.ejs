@@ -8,8 +8,8 @@
 <% if(journal.projects.length > 0) { %>
     <% journal.projects.forEach(function(p) { %>
         ---------------------------------------------
-        <p><%= p.name %> :: <%= p.type %> :: <%= p.grade %></p>
-        ---------------------------------------------
+        <p><%= p.name %> :: <%= p.type %> :: <%= p.grade %> <a href="/projects/<%= p._id %>">view</a></p>
+         ---------------------------------------------
         <br>
     <% }) %>
 <% } else { %>

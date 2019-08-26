@@ -1,0 +1,30 @@
+
+
+
+<h3><%= proj.name %></h3>
+<h3><%= proj.grade %></h3>
+<h3><%= proj.startDate %></h3>
+<% if (proj.endDate){ %>
+<h3><%= proj.endDate %></h3>
+<% } %>
+<h3><%= proj.description %></h3>
+
+<% if(proj.notes > 0) { %>
+    <% proj.notes.forEach(function(n) { %>
+        ---------------------------------------------
+        <p><%= n %></p>
+         ---------------------------------------------
+        <br>
+    <% }) %>
+<% } else { %>
+    <p>There are no notes for this project :(</p>
+<% } %>
+
+<form action="/projects/<%= proj._id %>" method="POST">
+<textarea name="notes" id="" cols="30" rows="5" placeholder="Add notes..."></textarea><br>
+<input type="submit" value="ADD NOTE!">
+</form>
+
+
+
+<a href="/journals/<%= journal._id %>">Back to Projects</a>
