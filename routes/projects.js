@@ -10,6 +10,10 @@ router.delete('/projects/:id', projectsCtrl.delete);
 
 router.post('/journals/:id/projects', projectsCtrl.create);
 
+router.get('/projects/:id/edit', projectsCtrl.edit);
+
+
+
 
 
 

@@ -4,10 +4,19 @@ module.exports = {
     new: newProj,
     show,
     delete: deleteProj,
-    create
+    create,
+    edit
+   
 };
 
 var proj;
+
+function edit(req, res) {
+    Journal.findById(req.params.id, (err, journal) => {
+        res.render('projects/edit', { journal });
+    })
+}
+
 
 function create(req, res) {
     Journal.findById(req.params.id, function(err, journal) {

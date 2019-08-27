@@ -12,14 +12,12 @@
 <% if(proj.notes.length > 0) { %>
     <% proj.notes.forEach(function(n, idx) { %>
          <li> <%= n %></li>
+        
     <% }) %>
 <% } else { %>
     <p>There are no notes for this project :(</p>
 <% } %>
 
-<br>
------------------------------------------------- <br>
------------------------------------------------- <br>
 <br>
 
 <form type="text" action="/projects/<%= proj._id %>" method="POST">

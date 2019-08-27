@@ -34,7 +34,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/journals', journalsRouter);
 app.use('/', projectsRouter);
-app.use('/', notesRouter)
+app.use('/projects', notesRouter);
 
 
 

@@ -3,6 +3,8 @@ const router = express.Router();
 const notesCtrl = require('../controllers/notes');
 
 
-router.post('/projects/:id', notesCtrl.create);
+router.post('/:id', notesCtrl.create);
+
+router.delete('/:id', notesCtrl.delete);
 
 module.exports = router;
