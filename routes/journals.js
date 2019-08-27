@@ -12,7 +12,9 @@ router.get('/:id', journalsCtrl.show);
 
 router.post('/:id/projects', journalsCtrl.addProject);
 
-router.get('/:id/deleteJournal', journalsCtrl.delJournal);
+router.delete('/:id', journalsCtrl.delJournal);
+
+
 
 
 

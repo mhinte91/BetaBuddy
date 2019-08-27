@@ -6,18 +6,20 @@ module.exports = {
     create,
     show,
     addProject,
-    delJournal
+    delJournal,
+    
     
 };
 
+
+
 function delJournal(req, res, next) {
-    Journal.findById(req.params.id, function(err, journal) {
-        res.render('journals/delete', {
-            title: `${journal.name}`,
-            journal
-        });
+    Journal.deleteOne({ _id: req.params.id}, (err) => {
+        Journal.find({}, function(err, journals) {
+            res.render('journals/index', { journals })});
     })
-}
+    }
+
 
 function addProject(req, res) {
     Journal.findById(req.params.id, function(err, journal) {

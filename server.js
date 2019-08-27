@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const app = express();
 const port = process.env.PORT || 3000;
+const methodOverride = require('method-override');
 
 
 require('dotenv').config();
@@ -27,10 +28,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/journals', journalsRouter);
 app.use('/', projectsRouter);
+
 
 
 app.listen(port, () => console.log(`Express is listening on port ${port}`));

@@ -9,21 +9,19 @@
 <% } %>
 <h3><%= proj.description %></h3>
 
-<%= proj.notes.length %>
-
 <% if(proj.notes.length > 0) { %>
     <% proj.notes.forEach(function(n, idx) { %>
-        ---------------------------------------------
-        <p> yo </p>
-         ---------------------------------------------
+        ----------------------------------------------------
+            <p> <%= n %><%= idx %></p><br>
+         ----------------------------------------------------
         <br>
     <% }) %>
 <% } else { %>
     <p>There are no notes for this project :(</p>
 <% } %>
 
-<form type="text" name="notes" action="/projects/<%= proj._id %>" method="POST">
-<textarea id="" cols="30" rows="5" placeholder="Add notes..."></textarea><br>
+<form type="text" action="/projects/<%= proj._id %>" method="POST">
+<textarea name="notes" id="" cols="30" rows="5"></textarea><br>
 <input  type="submit" value="ADD NOTE!">
 </form>
 

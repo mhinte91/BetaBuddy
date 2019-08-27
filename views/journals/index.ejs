@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h1>My Journals</h1>
-
+<% if (journals.length > 0) { %>
 <% journals.forEach(function(journal) { %>
 <p>
     ---------------------------------------------- <br>
@@ -9,10 +9,14 @@
     <b>Location: </b><%= journal.location %> <br>
     <b>Description: </b><%= journal.description %> <br>
     <b>Entries: </b><%= journal.projects.length %> <br>
-    <a href="/journals/<%= journal.id %>">Explore this Journal</a> | <a href="/journals/<%= journal.id %>/deleteJournal">Delete Journal</a> <br>
+    <a href="/journals/<%= journal.id %>">Explore this Journal</a> | <form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
+        <button type="submit">Delete</button>
+      </form>  
     ----------------------------------------------
 </p>
-<% }); %>
+<% });} else { %>
+    <p>You have no Journals!</p>
+    <% } %>
 
 <a href="/journals/new">Add a journal!</a>
 <br>

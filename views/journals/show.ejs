@@ -8,7 +8,9 @@
 <% if(journal.projects.length > 0) { %>
     <% journal.projects.forEach(function(p) { %>
         ---------------------------------------------
-        <p><%= p.name %> :: <%= p.type %> :: <%= p.grade %> <a href="/projects/<%= p._id %>">view</a></p>
+        <p><%= p.name %> :: <%= p.type %> :: <%= p.grade %> <a href="/projects/<%= p._id %>">view</a> | <form action="/projects/<%= p._id %>?_method=DELETE" method="POST" class="delete-form">
+            <button type="submit">Delete</button>
+          </form>  </p>
          ---------------------------------------------
         <br>
     <% }) %>
