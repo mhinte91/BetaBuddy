@@ -1,5 +1,5 @@
 
-
+<%- include('../partials/header') %>
 
 <h3><%= proj.name %> at <%= journal.name %></h3>
 <h3><%= proj.grade %></h3>
@@ -11,20 +11,25 @@
 
 <% if(proj.notes.length > 0) { %>
     <% proj.notes.forEach(function(n, idx) { %>
-        ----------------------------------------------------
-            <p> <%= n %><%= idx %></p><br>
-         ----------------------------------------------------
-        <br>
+         <li> <%= n %></li>
     <% }) %>
 <% } else { %>
     <p>There are no notes for this project :(</p>
 <% } %>
 
+<br>
+------------------------------------------------ <br>
+------------------------------------------------ <br>
+<br>
+
 <form type="text" action="/projects/<%= proj._id %>" method="POST">
-<textarea name="notes" id="" cols="30" rows="5"></textarea><br>
+<textarea name="notes" id="" cols="30" rows="2"></textarea><br>
 <input  type="submit" value="ADD NOTE!">
 </form>
 
 
 
-<a href="/journals/<%= journal._id %>">Back to Projects</a>
+<a href="/journals/<%= journal._id %>">Back to Projects</a><br>
+<a href="/journals">Back to Journals</a>
+
+<%- include('../partials/footer') %>

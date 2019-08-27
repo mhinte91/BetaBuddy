@@ -5,7 +5,6 @@ module.exports = {
     new: newJournal,
     create,
     show,
-    addProject,
     delJournal,
     
     
@@ -19,16 +18,6 @@ function delJournal(req, res, next) {
             res.render('journals/index', { journals })});
     })
     }
-
-
-function addProject(req, res) {
-    Journal.findById(req.params.id, function(err, journal) {
-        journal.projects.push(req.body);
-        journal.save(function(err, journal) {
-            res.redirect(`/journals/${journal._id}`)
-        })
-    })
-}
 
 
 function show(req, res, next) {

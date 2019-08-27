@@ -6,9 +6,10 @@ router.get('/journals/:id/new', projectsCtrl.new);
 
 router.get('/projects/:id', projectsCtrl.show);
 
-router.post('/projects/:id', projectsCtrl.newNote);
-
 router.delete('/projects/:id', projectsCtrl.delete);
+
+router.post('/journals/:id/projects', projectsCtrl.create);
+
 
 
 

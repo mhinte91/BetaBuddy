@@ -9,7 +9,8 @@
     <b>Location: </b><%= journal.location %> <br>
     <b>Description: </b><%= journal.description %> <br>
     <b>Entries: </b><%= journal.projects.length %> <br>
-    <a href="/journals/<%= journal.id %>">Explore this Journal</a> | <form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
+    <a href="/journals/<%= journal.id %>">Explore this Journal</a>  
+    <form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
         <button type="submit">Delete</button>
       </form>  
     ----------------------------------------------

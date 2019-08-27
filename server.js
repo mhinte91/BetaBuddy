@@ -3,6 +3,7 @@ const path = require('path');
 const indexRouter = require('./routes/index');
 const journalsRouter = require('./routes/journals');
 const projectsRouter = require('./routes/projects');
+const notesRouter = require('./routes/notes');
 const session = require('express-session');
 const passport = require('passport');
 const app = express();
@@ -33,6 +34,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/journals', journalsRouter);
 app.use('/', projectsRouter);
+app.use('/', notesRouter)
 
 
 
