@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 
-<h1>Edit Project Form</h1>
+<h1>Edit</h1>
 
-<form action="/projects/<%= proj._id %>?_method=PUT" method="POST">
+<form action="/journals/<%= journal._id %>/projects" method="POST">
 Project Name: <input type="text" name="name" placeholder="Project Name">
 <br>
 Wall Type: <select name="type">

@@ -12,17 +12,22 @@ module.exports = {
 };
 
 function update(req, res) {
-    Journal.findOneAndUpdate(req.params.id, req.body).then(function(journal) {
-        res.render(`journals/show`, {
-            title: `${journal.name}`,
-            journal
-        });
-    });
+    Journal.projects
+    .findOneAndUpdate(req.params.id, req.body, { new : true })
+    .then(Journal.findOne({'projects._id': req.params.id}, (err, journal) =>
+    {if (err) throw err;
+        var elem = journal.projects.map(function (x) {
+            return x.id;
+        }).indexOf(req.params.id);
+        proj = journal.projects[elem];
+    res.render('projects/show', {journal, proj})}
+     ));
 
+  
     
 }
 
-function edit(req, res) {
+function edit(req, res, next) {
     Journal.findOne({'projects._id': req.params.id}, (err, journal) =>
     {if (err) throw err;
         var elem = journal.projects.map(function (x) {

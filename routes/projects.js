@@ -10,7 +10,7 @@ router.delete('/projects/:id', projectsCtrl.delete);
 
 router.post('/journals/:id/projects', projectsCtrl.create);
 
-router.get('/:id/edit', projectsCtrl.edit);
+router.get('/projects/:id/edit', projectsCtrl.edit);
 
 router.put('/projects/:id', projectsCtrl.update);
 

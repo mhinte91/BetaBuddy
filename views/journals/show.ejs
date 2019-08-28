@@ -9,16 +9,14 @@
 
 <% if(journal.projects.length > 0) { %>
     <% journal.projects.forEach(function(p) { %>
-        ---------------------------------------------
-        <p><%= p.name %> :: <%= p.type %> :: <%= p.grade %> <br>
-            <a href="/projects/<%= p._id %>">view</a> |
-            <a href="/projects/<%= p._id %>/edit">edit</a> 
+        <p class="box"><%= p.name %> :: <%= p.type %> :: <%= p.grade %> <br>
+            <a class="button is-small is-success" href="/projects/<%= p._id %>">view</a>
+            <a class="button is-small is-warning" href="/projects/<%= p._id %>/edit">edit</a> 
             <form action="/projects/<%= p._id %>?_method=DELETE" method="POST" class="delete-form"> 
-            <button type="submit">Delete</button>
+            <button class="button is-small is-danger" type="submit">Delete</button>
             </form>  
         </p>
-         ---------------------------------------------
-        <br>
+       
     <% }) %>
 <% } else { %>
     <p>There are no projects for this journal</p>
