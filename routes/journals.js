@@ -10,7 +10,15 @@ router.post('/', journalsCtrl.create);
 
 router.get('/:id', journalsCtrl.show);
 
-router.post('/:id/projects', journalsCtrl.addProject);
+router.delete('/:id', journalsCtrl.delJournal);
+
+router.get('/:id/edit', journalsCtrl.edit);
+
+router.put('/:id', journalsCtrl.update);
+
+
+
+
 
 
 

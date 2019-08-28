@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+
+<h1>Delete <%= title %>?</h1>
+<h2>You will lose all project entries!</h2>
+
+<a href="/journals/<%= journal.id %>/delete?_method=DELETE">Delete</a>
+<a href="/journals">Go Back</a>
+
+
+<%- include('../partials/footer') %>

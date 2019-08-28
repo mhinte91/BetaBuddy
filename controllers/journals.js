@@ -5,18 +5,35 @@ module.exports = {
     new: newJournal,
     create,
     show,
-    addProject
+    delJournal,
+    update,
+    edit
+    
+    
 };
 
-function addProject(req, res) {
+function edit(req, res, next) {
     Journal.findById(req.params.id, function(err, journal) {
-        journal.projects.push(req.body);
-        console.log('journal data', journal);
-        journal.save(function(err, journal) {
-            res.redirect(`/journals/${journal._id}`)
-        })
+        res.render(`journals/edit`, {
+            title: `${journal.name}`,
+            journal
+        });
     })
 }
+
+function update(req, res) {
+    Journal.findOneAndUpdate(req.params.id, req.body).then(Journal.find({}, function(err, journals) {
+        res.render('journals/success', { journals })}))
+
+    
+}
+
+function delJournal(req, res, next) {
+    Journal.deleteOne({ _id: req.params.id}, (err) => {
+        Journal.find({}, function(err, journals) {
+            res.render('journals/index', { journals })});
+    })
+    }
 
 
 function show(req, res, next) {
@@ -33,7 +50,6 @@ function create(req, res, next) {
         req.body[key] === '' && delete req.body[key];
     }
     Journal.create(req.body, function(err, journal) {
-        console.log(journal);
         res.redirect('/journals');
     });
 }

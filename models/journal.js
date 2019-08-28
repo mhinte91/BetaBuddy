@@ -12,7 +12,6 @@ const projectSchema = new Schema ({
     endDate: Date,
     description: String,
     notes: []
-
 })
 
 const journalSchema = new Schema ({
