@@ -22,12 +22,8 @@ function edit(req, res, next) {
 }
 
 function update(req, res) {
-    Journal.findOneAndUpdate(req.params.id, req.body).then(function(journal) {
-        res.render(`journals/show`, {
-            title: `${journal.name}`,
-            journal
-        });
-    });
+    Journal.findOneAndUpdate(req.params.id, req.body).then(Journal.find({}, function(err, journals) {
+        res.render('journals/index', { journals })}))
 
     
 }
