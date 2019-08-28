@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Journal Form</h1>
+
+<form action="/journals" method="POST" autocomplete="off">
+    <input type="text" name="name" placeholder="Name" required><br><br>
+    <input type="text" name="location" placeholder="Location" required><br><br>
+    <textarea name="description" id="" cols="30" rows="5" placeholder="Description (optional)"></textarea> <br>
+    <input type="submit" value="Add New Journal">
+</form>
+
+<br>
+<a href="/journals">Go back</a>
+   
+<%- include('../partials/footer') %>
+   

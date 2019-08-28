@@ -1,20 +1,36 @@
 const Journal = require('../models/journal');
+var proj;
 
 module.exports = {
     new: newProj,
     show,
     delete: deleteProj,
     create,
-    edit
+    edit,
+    update
    
 };
 
-var proj;
+function update(req, res) {
+    Journal.findOneAndUpdate(req.params.id, req.body).then(function(journal) {
+        res.render(`journals/show`, {
+            title: `${journal.name}`,
+            journal
+        });
+    });
+
+    
+}
 
 function edit(req, res) {
-    Journal.findById(req.params.id, (err, journal) => {
-        res.render('projects/edit', { journal });
-    })
+    Journal.findOne({'projects._id': req.params.id}, (err, journal) =>
+    {if (err) throw err;
+        var elem = journal.projects.map(function (x) {
+            return x.id;
+        }).indexOf(req.params.id);
+        proj = journal.projects[elem];
+    res.render('projects/edit', {journal, proj})}
+     )
 }
 
 
@@ -44,11 +60,6 @@ function deleteProj(req, res) {
             journal
         });})
     })}
-
-
-  
-
-
 
 function show(req, res, next) {
     Journal.findOne({'projects._id': req.params.id}, (err, journal) =>

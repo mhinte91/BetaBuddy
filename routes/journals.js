@@ -12,6 +12,8 @@ router.get('/:id', journalsCtrl.show);
 
 router.delete('/:id', journalsCtrl.delJournal);
 
+router.get('/:id/edit', journalsCtrl.edit);
+
 
 
 

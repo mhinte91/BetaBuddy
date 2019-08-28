@@ -6,11 +6,31 @@ module.exports = {
     create,
     show,
     delJournal,
+    update,
+    edit
     
     
 };
 
+function edit(req, res, next) {
+    Journal.findById(req.params.id, function(err, journal) {
+        res.render(`journals/edit`, {
+            title: `${journal.name}`,
+            journal
+        });
+    })
+}
 
+function update(req, res) {
+    Journal.findOneAndUpdate(req.params.id, req.body).then(function(journal) {
+        res.render(`journals/show`, {
+            title: `${journal.name}`,
+            journal
+        });
+    });
+
+    
+}
 
 function delJournal(req, res, next) {
     Journal.deleteOne({ _id: req.params.id}, (err) => {
