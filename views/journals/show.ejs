@@ -12,7 +12,7 @@
     <% journal.notes.forEach(function(n, idx) { %>
     
         <div class="notification">
-             <%= n %>
+             <%= n._id %> <button class="delete"></button>
         </div>
        
     <% }) %>
