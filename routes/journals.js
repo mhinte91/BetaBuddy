@@ -2,24 +2,27 @@ const express = require('express');
 const router = express.Router();
 const journalsCtrl = require('../controllers/journals');
 
-router.get('/', journalsCtrl.index);
+// @ GET 
+// @ private route
+// @ brings user to home page
+router.get('/', isLoggedIn, journalsCtrl.index);
 
-router.get('/new', journalsCtrl.new);
+router.get('/new', isLoggedIn, journalsCtrl.new);
 
-router.post('/', journalsCtrl.create);
+router.post('/', isLoggedIn, journalsCtrl.create);
 
-router.get('/:id', journalsCtrl.show);
+router.get('/:id', isLoggedIn, journalsCtrl.show);
 
-router.delete('/:id', journalsCtrl.delJournal);
+router.delete('/:id', isLoggedIn, journalsCtrl.delJournal);
 
-router.get('/:id/edit', journalsCtrl.edit);
+router.get('/:id/edit', isLoggedIn, journalsCtrl.edit);
 
-router.put('/:id', journalsCtrl.update);
+router.put('/:id', isLoggedIn, journalsCtrl.update);
 
-
-
-
-
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+  }
 
 
 module.exports = router;

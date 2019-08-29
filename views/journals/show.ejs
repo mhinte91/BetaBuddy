@@ -1,29 +1,55 @@
 <%- include('../partials/header') %>
 
+<section class="hero is-medium">
+        <div class="hero-header">
+          <div class="container">
+            <h1 class="title">
+                <%= title %>
+            </h1>
+            <h2 class="subtitle">
+                at <%= journal.location %>
+            </h2>
+          </div>
+        </div>
+      
 
-<h1><%= title %></h1>
-<h2><%= journal.location %></h2>
+<p>
+<b>Type: </b><%= journal.type %>
+<b>Grade:</b><%= journal.grade %>
+</p>
+<p>
+<b>Date: </b><%= journal.startDate %>
+</p>
+
 <h3><%= journal.description %></h3>
-<h5>Projects: <%= journal.projects.length %></h5>
-<br><br>
-
-<% if(journal.projects.length > 0) { %>
-    <% journal.projects.forEach(function(p) { %>
-        <p class="box"><%= p.name %> :: <%= p.type %> :: <%= p.grade %> <br>
-            <a class="button is-small is-success" href="/projects/<%= p._id %>">view</a>
-            <a class="button is-small is-warning" href="/projects/<%= p._id %>/edit">edit</a> 
-            <form action="/projects/<%= p._id %>?_method=DELETE" method="POST" class="delete-form"> 
-            <button class="button is-small is-danger" type="submit">Delete</button>
-            </form>  
-        </p>
+<div class="block hero-body">
+<% if(journal.notes.length > 0) { %>
+    <% journal.notes.forEach(function(n, idx) { %>
+        <div class="block">
+        <form action="/notes/<%= n._id %>?_method=DELETE" method="POST" class="delete-form"> 
+        <div class="notification">
+                <%= n.content %>
+                <button class="delete"></button>
+            </div>
+        </form>
+    </div>
        
     <% }) %>
 <% } else { %>
-    <p>There are no projects for this journal</p>
+
+    <p class="box">There are no notes for this project :(</p>
 <% } %>
+</div>
+<div class="hero-foot">
+<form type="text" action="/journals/<%= journal._id %>/notes" method="POST">
+    <textarea name="content" id="" cols="100" rows="5"></textarea><br>
+    <input class="button is-small is-dark" type="submit" value="ADD NOTE!">
+    <a class="button is-small is-light" href="/journals">Back to Journals</a>
+</form>
+</div>
+</section>
 
 
-<a href="/journals/<%= journal._id %>/new">Add New Project</a><br>
-<a href="/journals">Back to Journals</a>
+
 
 <%- include('../partials/header') %>

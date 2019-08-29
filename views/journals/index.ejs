@@ -1,29 +1,30 @@
 <%- include('../partials/header') %>
 
 <h1 class="title">My Journals</h1>
+<div class="columns is-centered is-multiline">
 <% if (journals.length > 0) { %>
 <% journals.forEach(function(journal) { %>
-<div class="block">
-<p class="box">
-    <b>Name: </b><%= journal.name %> <br>
-    <b>Location: </b><%= journal.location %> <br>
-    <b>Description: </b><%= journal.description %> <br>
-    <b>Entries: </b><%= journal.projects.length %> <br>
+    <div class="block">
+<form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
+        <p class="box">
+            <b>Name: </b><%= journal.name %> <br>
+            <b>Grade: </b><%= journal.grade %> <br>
+            <b>Location: </b><%= journal.location %> <br>
+            <b>Description: </b><%= journal.description %> <br>
     <a class="button is-small is-success" href="/journals/<%= journal.id %>">Explore</a>
     <a class="button is-small is-warning" href="journals/<%= journal.id %>/edit">Edit</a>  
-    <form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
-        <button class="button is-small is-danger" type="submit">Delete</button>
-    </form>  
-</p>
-</div>
+    <button class="button is-small is-danger" type="submit">Delete</button>
+        </p>
+    </form>
+</div> 
 <% });} else { %>
     <p>You have no Journals!</p>
     <% } %>
-
-<a href="/journals/new">Add a journal!</a>
+</div>
+<a class="button is-dark" href="/journals/new">Add a journal!</a>
 <br>
 <br>
 <a href="/logout"><i class="material-icons left"></i>Log Out</a>
-   
+
 <%- include('../partials/footer') %>
    

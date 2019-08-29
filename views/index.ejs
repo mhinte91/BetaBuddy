@@ -1,8 +1,8 @@
 <%- include('./partials/header') %>
    
-
-  <h1> Welcome to BETA BUDDY </h1>
-  <ul class="right">
+  <div class="container is-fluid">
+  <h1 class="title"> Welcome to BETA BUDDY </h1>
+  <ul class="subtitle">
     <li>
     <% if (user) { %>
       <a href="/logout"><i class="material-icons left"></i>Log Out</a>
@@ -11,6 +11,6 @@
     <% } %>
     </li>
   </ul>
-    
+  </div>  
 
 <%- include('./partials/footer') %>
