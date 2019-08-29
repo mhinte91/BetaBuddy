@@ -1,22 +1,38 @@
 <%- include('../partials/header') %>
 
+<section class="hero is-medium">
+        <div class="hero-header">
+          <div class="container">
+            <h1 class="title">
+                <%= title %>
+            </h1>
+            <h2 class="subtitle">
+                at <%= journal.location %>
+            </h2>
+          </div>
+        </div>
+      
 
-<h1 class="title"><%= title %></h1>
-<h1 class="subtitle">at <%= journal.location %></h1>
-<h1>Type: <%= journal.type %></h1>
-<h1>Grade: <%= journal.grade %></h1>
-<h2>Start Date: <%= journal.statDate %></h2>
+<p>
+<b>Type: </b><%= journal.type %>
+<b>Grade:</b><%= journal.grade %>
+</p>
+<p>
+<b>Date: </b><%= journal.startDate %>
+</p>
+
 <h3><%= journal.description %></h3>
-<div class="block">
+<div class="block hero-body">
 <% if(journal.notes.length > 0) { %>
     <% journal.notes.forEach(function(n, idx) { %>
-    
-        <div class="box">
-             <%= n.content %>
-             <form action="/notes/<%= n._id %>?_method=DELETE" method="POST" class="delete-form"> 
-              <button class="delete"></button>
-              </form>
-        </div>
+        <div class="block">
+        <form action="/notes/<%= n._id %>?_method=DELETE" method="POST" class="delete-form"> 
+        <div class="notification">
+                <%= n.content %>
+                <button class="delete"></button>
+            </div>
+        </form>
+    </div>
        
     <% }) %>
 <% } else { %>
@@ -24,11 +40,15 @@
     <p class="box">There are no notes for this project :(</p>
 <% } %>
 </div>
+<div class="hero-foot">
 <form type="text" action="/journals/<%= journal._id %>/notes" method="POST">
-    <textarea name="content" id="" cols="30" rows="2"></textarea><br>
-    <input class="button is-small is-success" type="submit" value="ADD NOTE!">
-    <a class="button is-small is-info" href="/journals">Back to Journals</a>
+    <textarea name="content" id="" cols="100" rows="5"></textarea><br>
+    <input class="button is-small is-dark" type="submit" value="ADD NOTE!">
+    <a class="button is-small is-light" href="/journals">Back to Journals</a>
 </form>
+</div>
+</section>
+
 
 
 
