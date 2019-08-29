@@ -1,18 +1,18 @@
 <%- include('../partials/header') %>
 
 
-<h1><%= title %></h1>
-<h1><%= journal.type %></h1>
-<h1><%= journal.grade %></h1>
-<h2><%= journal.location %></h2>
-<h2><%= journal.startDate %></h2>
+<h1 class="title"><%= title %></h1>
+<h1 class="subtitle">at <%= journal.location %></h1>
+<h1>Type: <%= journal.type %></h1>
+<h1>Grade: <%= journal.grade %></h1>
+<h2>Start Date: <%= journal.statDate %></h2>
 <h3><%= journal.description %></h3>
-
+<div class="block">
 <% if(journal.notes.length > 0) { %>
     <% journal.notes.forEach(function(n, idx) { %>
     
-        <div class="notification">
-             <%= n._id %>
+        <div class="box">
+             <%= n.content %>
              <form action="/notes/<%= n._id %>?_method=DELETE" method="POST" class="delete-form"> 
               <button class="delete"></button>
               </form>
@@ -20,11 +20,12 @@
        
     <% }) %>
 <% } else { %>
-    <p>There are no notes for this project :(</p>
-<% } %>
 
+    <p class="box">There are no notes for this project :(</p>
+<% } %>
+</div>
 <form type="text" action="/journals/<%= journal._id %>/notes" method="POST">
-    <textarea name="notes" id="" cols="30" rows="2"></textarea><br>
+    <textarea name="content" id="" cols="30" rows="2"></textarea><br>
     <input class="button is-small is-success" type="submit" value="ADD NOTE!">
     <a class="button is-small is-info" href="/journals">Back to Journals</a>
 </form>

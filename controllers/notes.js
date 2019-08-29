@@ -25,6 +25,7 @@ function deleteOne(req, res) {
 
 function create(req, res) {
     Journal.findById(req.params.id, function(err, journal) {
+        console.log(req.body)
         journal.notes.push(req.body);
         journal.save(function(err, journal) {
             res.redirect(`/journals/${journal._id}`)
