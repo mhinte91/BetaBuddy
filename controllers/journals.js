@@ -24,16 +24,15 @@ function edit(req, res, next) {
 function update(req, res) {
     Journal.findOneAndUpdate(req.params.id, req.body).then(Journal.find({}, function(err, journals) {
         res.render('journals/success', { journals })}))
-
-    
 }
 
 function delJournal(req, res, next) {
     Journal.deleteOne({ _id: req.params.id}, (err) => {
         Journal.find({}, function(err, journals) {
-            res.render('journals/index', { journals })});
+            res.render('journals/index', { journals })
+        });
     })
-    }
+}
 
 
 function show(req, res, next) {
