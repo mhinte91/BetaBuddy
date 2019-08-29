@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 
-<h1>Edit Journal Form</h1>
+<h1 class="title">Edit Journal Form</h1>
 
 <form action="/journals/<%= journal._id %>?_method=PUT" method="POST">
     <input type="text" name="name" placeholder="Name" required><br><br>
     <input type="text" name="location" placeholder="Location" required><br><br>
     <textarea name="description" id="" cols="30" rows="5" placeholder="Description (optional)"></textarea> <br>
-    <input type="submit" value="Edit Journal">
+    <input class="button is-success" type="submit" value="Edit Journal">
 </form>
 
 <br>
-<a href="/journals">Go back</a>
+<a class="button is-primary" href="/journals">Go back</a>
    
 <%- include('../partials/footer') %>
    

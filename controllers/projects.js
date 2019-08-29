@@ -23,7 +23,7 @@ function update(req, res) {
     res.render('projects/show', {journal, proj})}
      ));
 
-  
+    
     
 }
 

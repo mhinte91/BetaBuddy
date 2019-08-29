@@ -1,19 +1,26 @@
 
 <%- include('../partials/header') %>
 
-<h3><%= proj.name %> at <%= journal.name %></h3>
-<h3><%= proj.grade %></h3>
-<h4><%= proj.startDate %></h4>
+<h3 class="title"><%= proj.name %></h3>
+<h3 class="subtitle"> at <%= journal.name %></h3>
+<h3 class="is-3">Grade: <%= proj.grade %></h3>
+<% if (proj.startDate){ %>
+    <h4><%= proj.startDate%></h4>
+    <% } %>
+
 <% if (proj.endDate){ %>
 <h4><%= proj.endDate %></h4>
 <% } %>
-<h3><%= proj.description %></h3>
+
+<% if (proj.description){ %>
+<h4>Description: <%= proj.description %></h4>
+<% } %>
+
 
 <% if(proj.notes.length > 0) { %>
     <% proj.notes.forEach(function(n, idx) { %>
     
-         <div class="notification">
-             <button class="delete" href="/notes/delete"></button> 
+        <div class="notification">
              <%= n %>
         </div>
        
