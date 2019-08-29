@@ -2,28 +2,30 @@
 
 
 <h1><%= title %></h1>
+<h1><%= journal.type %></h1>
+<h1><%= journal.grade %></h1>
 <h2><%= journal.location %></h2>
+<h2><%= journal.startDate %></h2>
 <h3><%= journal.description %></h3>
-<h5>Projects: <%= journal.projects.length %></h5>
-<br><br>
 
-<% if(journal.projects.length > 0) { %>
-    <% journal.projects.forEach(function(p) { %>
-        <p class="box"><%= p.name %> :: <%= p.type %> :: <%= p.grade %> <br>
-            <a class="button is-small is-success" href="/projects/<%= p._id %>">view</a>
-            <a class="button is-small is-warning" href="/projects/<%= p._id %>/edit">edit</a> 
-            <form action="/projects/<%= p._id %>?_method=DELETE" method="POST" class="delete-form"> 
-            <button class="button is-small is-danger" type="submit">Delete</button>
-            </form>  
-        </p>
+<% if(journal.notes.length > 0) { %>
+    <% journal.notes.forEach(function(n, idx) { %>
+    
+        <div class="notification">
+             <%= n %>
+        </div>
        
     <% }) %>
 <% } else { %>
-    <p>There are no projects for this journal</p>
+    <p>There are no notes for this project :(</p>
 <% } %>
 
+<form type="text" action="journals/<%= journal._id %>" method="POST">
+    <textarea name="notes" id="" cols="30" rows="2"></textarea><br>
+    <input class="button is-small is-success" type="submit" value="ADD NOTE!">
+    </form>
 
-<a href="/journals/<%= journal._id %>/new">Add New Project</a><br>
-<a href="/journals">Back to Journals</a>
+    <a href="/journals">Back to Journals</a>
+
 
 <%- include('../partials/header') %>

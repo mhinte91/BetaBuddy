@@ -3,13 +3,37 @@
 <h1>New Journal Entry Form</h1>
 
 <form action="/journals" method="POST" autocomplete="off">
-    <input type="text" name="name" placeholder="Name" required><br><br>
-    <input type="text" name="location" placeholder="Location" required><br><br>
-    <textarea name="description" id="" cols="30" rows="5" placeholder="Description (optional)"></textarea> <br>
-    <input type="submit" value="Add New Journal">
-</form>
-
-<br>
+    Journal Name: <input type="text" name="name" placeholder="Project Name">
+    <br>
+    Wall Type: <select name="type">
+    <option value="Sport">Sport</option>
+    <option value="Trad">Traditional</option>
+    <option value="Top-Tope">Top-Rope</option>
+    <option value="Boulder">Boulder</option>
+    </select>
+    <br>
+    Grade: <select name="grade">
+    <option value="5.1-5.8 || VB">5.1-5.8 || VB</option>
+    <option value="5.9-1.10- || V0">5.9-5.10- || V0</option>
+    <option value="5.10+ || V1">5.10+ || V1</option>
+    <option value="5.11- || V2">5.11- || V2</option>
+    <option value="5.11+ || V3">5.11+ || V3</option>
+    <option value="5.12- || V4">5.12- || V4</option>
+    <option value="5.12 || V5">5.12 || V5</option>
+    <option value="5.12+ || V6">5.12+ || V6</option>
+    <option value="5.13- || V7">5.13- || V7</option>
+    <option value="5.13 || V8">5.13 || V8</option>
+    <option value="5.13+ || V9">5.13+ || V9</option>
+    <option value="5.14- || V10">5.14- || V10</option>
+    </select>
+    <br>
+    Start Date: <input type="date" name="startDate">
+     <br>
+    <textarea name="description" id="" cols="30" rows="5" placeholder="Description"></textarea>
+    <br>
+    <input type="submit" value="Add New Project">
+    </form>
+    
 <a href="/journals">Go back</a>
    
 <%- include('../partials/footer') %>

@@ -6,9 +6,9 @@
 <div class="block">
 <p class="box">
     <b>Name: </b><%= journal.name %> <br>
+    <b>Grade: </b><%= journal.grade %> <br>
     <b>Location: </b><%= journal.location %> <br>
     <b>Description: </b><%= journal.description %> <br>
-    <b>Entries: </b><%= journal.projects.length %> <br>
     <a class="button is-small is-success" href="/journals/<%= journal.id %>">Explore</a>
     <a class="button is-small is-warning" href="journals/<%= journal.id %>/edit">Edit</a>  
     <form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">

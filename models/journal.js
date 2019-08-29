@@ -1,24 +1,29 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const projectSchema = new Schema ({
+const journalSchema = new Schema ({
     name: String,
+    location: String,
     type: {
       type: String,
       enum: ['Sport', 'Boulder', 'Trad', 'Top-Rope']
     },
     grade: String,
     startDate: Date,
-    endDate: Date,
     description: String,
-    notes: []
+    notes: [notesSchema]
 })
 
-const journalSchema = new Schema ({
-    name: String,
-    location: String,
-    description: String,
-    projects: [projectSchema]
-}, {timestamps:true} );
+
+const notesSchema = new Schema ({
+  note: String
+})
+
+// const Schema = new Schema ({
+//     name: String,
+//     location: String,
+//     description: String,
+//     projects: [projectSchema]
+// }, {timestamps:true} );
 
 module.exports = mongoose.model('Journal', journalSchema);
