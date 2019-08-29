@@ -20,10 +20,10 @@
     <p>There are no notes for this project :(</p>
 <% } %>
 
-<form type="text" action="journals/<%= journal._id %>" method="POST">
+<form type="text" action="/journals/<%= journal._id %>/notes" method="POST">
     <textarea name="notes" id="" cols="30" rows="2"></textarea><br>
     <input class="button is-small is-success" type="submit" value="ADD NOTE!">
-    </form>
+</form>
 
     <a href="/journals">Back to Journals</a>
 
