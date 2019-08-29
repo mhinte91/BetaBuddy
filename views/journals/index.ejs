@@ -3,16 +3,16 @@
 <h1 class="title">My Journals</h1>
 <% if (journals.length > 0) { %>
 <% journals.forEach(function(journal) { %>
-<div class="block">
-<p class="box">
-    <b>Name: </b><%= journal.name %> <br>
-    <b>Grade: </b><%= journal.grade %> <br>
-    <b>Location: </b><%= journal.location %> <br>
-    <b>Description: </b><%= journal.description %> <br>
+<form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
+    <div class="block">
+        <p class="box">
+            <b>Name: </b><%= journal.name %> <br>
+            <b>Grade: </b><%= journal.grade %> <br>
+            <b>Location: </b><%= journal.location %> <br>
+            <b>Description: </b><%= journal.description %> <br>
     <a class="button is-small is-success" href="/journals/<%= journal.id %>">Explore</a>
     <a class="button is-small is-warning" href="journals/<%= journal.id %>/edit">Edit</a>  
-    <form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
-        <button class="button is-small is-danger" type="submit">Delete</button>
+    <button class="button is-small is-danger" type="submit">Delete</button>
     </form>  
 </p>
 </div>
