@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const journalsCtrl = require('../controllers/journals');
 
-// @ GET 
-// @ private route
-// @ brings user to home page
+
 router.get('/', isLoggedIn, journalsCtrl.index);
 
 router.get('/new', isLoggedIn, journalsCtrl.new);

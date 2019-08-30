@@ -1,30 +1,30 @@
 <%- include('../partials/header') %>
 
-<h1 class="title">My Journals</h1>
+<h1 class="title">Journals</h1>
+
 <div class="columns is-centered is-multiline">
-<% if (journals.length > 0) { %>
-<% journals.forEach(function(journal) { %>
+    <% if (journals.length > 0) { %>
+    <% journals.forEach(function(journal) { %>
     <div class="block">
-<form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
+        <form action="/journals/<%= journal.id %>?_method=DELETE" method="POST" class="delete-form">
         <p class="box">
             <b>Name: </b><%= journal.name %> <br>
+            <b>Type: </b><%= journal.type %> <br>
             <b>Grade: </b><%= journal.grade %> <br>
             <b>Location: </b><%= journal.location %> <br>
             <b>Description: </b><%= journal.description %> <br>
-    <a class="button is-small is-success" href="/journals/<%= journal.id %>">Explore</a>
-    <a class="button is-small is-warning" href="journals/<%= journal.id %>/edit">Edit</a>  
-    <button class="button is-small is-danger" type="submit">Delete</button>
+            <a class="button is-small is-success" href="/journals/<%= journal.id %>">Explore</a>
+            <a class="button is-small is-warning" href="journals/<%= journal.id %>/edit">Edit</a>  
+            <button class="button is-small is-danger" type="submit">Delete</button>
         </p>
-    </form>
-</div> 
-<% });} else { %>
+        </form>
+    </div> 
+    <% });} else { %>
     <p>You have no Journals!</p>
     <% } %>
 </div>
-<a class="button is-dark" href="/journals/new">Add a journal!</a>
-<br>
-<br>
+<a class="button is-dark" href="/journals/new">Add a climb!</a>
+<br><br>
 <a href="/logout"><i class="material-icons left"></i>Log Out</a>
 
 <%- include('../partials/footer') %>
-   

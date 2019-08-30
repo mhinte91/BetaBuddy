@@ -6,22 +6,26 @@ module.exports = {
 }
 
 function deleteOne(req, res) {
-    Journal.findOne({'notes._id': req.params.id}, (err, journal) =>
-    {
-        var index;
-        journal.notes.some(function(entry, i) {
-            if (entry._id == req.params.id) {
-                index = i;
-                return true;
-            }
-        });
-        journal.notes.splice(index, 1);
-        journal.save( (err) =>{
+    Journal.findOne({'notes._id': req.params.id}, (err, journal) => {
+    var index;
+
+    journal.notes.some(function(entry, i) {
+        if (entry._id == req.params.id) {
+            index = i;
+            return true;
+        }}
+    );
+    
+    journal.notes.splice(index, 1);
+
+    journal.save( (err) =>{
         res.render(`journals/show`, {
             title: `${journal.name}`,
             journal
-        });})
-    })}
+        });
+    })
+})
+}
 
 function create(req, res) {
     Journal.findById(req.params.id, function(err, journal) {

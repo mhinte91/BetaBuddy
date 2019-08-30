@@ -11,6 +11,7 @@ var climberSchema = new Schema(
             ref: 'Journals'
         }]
     }, 
-    {timestamps: true});
+    {timestamps: true}
+);
 
 module.exports = mongoose.model('Climber', climberSchema);

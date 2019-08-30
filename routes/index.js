@@ -4,23 +4,26 @@ var passport = require('passport');
 const indexCtrl = require('../controllers/index');
 
 router.get('/', indexCtrl.index);
- // Google OAuth login route
+ 
 router.get('/auth/google', passport.authenticate(
 'google',
-{ scope: ['profile', 'email'] }
-));
-// Google OAuth callback route
+    { scope: ['profile', 'email'] }
+  )
+);
+
 router.get('/oauth2callback', passport.authenticate(
 'google',
-{
-    successRedirect : '/journals',
-    failureRedirect : '/'
-}
-));
- // OAuth logout route
+    {
+        successRedirect : '/journals',
+        failureRedirect : '/'
+    }
+  )
+);
+
  router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
-  });
+  }
+);
 
 module.exports = router;
