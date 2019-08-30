@@ -5,7 +5,7 @@
 Technologies Used: Javascript, HTML, Bulma CSS Framework, Express, MongoDB/Mongoose
 
 ## Getting Started
-* Starting with BetaBuddy is simple! Just follow <a href"beta-buddy.herokuapp.com">this link</a> and sign in with Google to create your own Journals.
+* Starting with BetaBuddy is simple! Just follow this [link] (www.beta-buddy.herokuapp.com) and sign in with Google to create your own Journals.
 * After signing up, click the **Add Journal** button to create a new Journal. You will be prompted to enter the Name, Location, Wall Type/Grade, and a brief description of the wall
 
 ![](https://i.imgur.com/aFg1MhJ.png)
