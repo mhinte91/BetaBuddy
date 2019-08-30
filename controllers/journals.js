@@ -23,7 +23,9 @@ function edit(req, res, next) {
 
 function update(req, res) {
     Journal.findOneAndUpdate(req.params.id, req.body).then(Journal.find({}, function(err, journals) {
-        res.render('journals/success', { journals })}))
+        res.render('journals/success', { journals })
+        })
+    )
 }
 
 function delJournal(req, res, next) {
