@@ -8,7 +8,7 @@ var climberSchema = new Schema(
         googleId: String,
         journals: [{
             type: Schema.Types.ObjectId,
-            ref: 'Journals'
+            ref: 'Journal'
         }]
     }, 
     {timestamps: true}
