@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var climberSchema = new Schema(
+var userSchema = new Schema(
     {
         name: String,
         email: String,
@@ -14,4 +14,4 @@ var climberSchema = new Schema(
     {timestamps: true}
 );
 
-module.exports = mongoose.model('Climber', climberSchema);
+module.exports = mongoose.model('User', userSchema);

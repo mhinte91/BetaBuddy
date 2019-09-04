@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 var passport = require('passport');
 const indexCtrl = require('../controllers/index');
+let User = require('../models/user')
 
 router.get('/', indexCtrl.index);
  
